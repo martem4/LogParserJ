@@ -23,7 +23,7 @@ public class LogFileReader <T extends Parser> {
             file.seek(file.length());
             while(true) {
                 if((line = file.readLine()) != null) {
-                    parser.parse(line);
+                    parser.parse(new String(line.getBytes("ISO-8859-1")));
                 } else {
                     Thread.sleep(FILE_READ_TIMEOUT);
                 }

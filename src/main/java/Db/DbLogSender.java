@@ -10,6 +10,7 @@ import java.util.Properties;
 
 public class DbLogSender {
 
+    //private static final String JDBC_PROPERTIES_FILE="src/main/resources/jdbc.properties";
     private static final String JDBC_PROPERTIES_FILE="jdbc.properties";
     private Properties propertiesDb = new Properties();
     InputStream inputStream;
@@ -48,6 +49,7 @@ public class DbLogSender {
         try {
             statement.execute(query);
         } catch (SQLException e) {
+            System.out.println(query);
             e.printStackTrace();
         }
     }
