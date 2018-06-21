@@ -1,7 +1,6 @@
 import Db.DbLogSender;
 import Model.LogFile;
 import Model.LogFiles;
-import Parser.Parser;
 import Parser.Log4jParser;
 import Reader.LogFileReader;
 
@@ -13,8 +12,7 @@ import java.util.List;
 
 public class LogParserJ {
 
-    private static final String LOGS_CONFIG_XML = "src/main/resources/logs.xml";
-    private LogFiles logFiles;
+    private static final String LOGS_CONFIG_XML = "logs.xml";
 
     private List<LogFile> readLogsXml() {
         List<LogFile> logFileList = null;
@@ -34,8 +32,7 @@ public class LogParserJ {
         for(LogFile logFile : logParser.readLogsXml()) {
             DbLogSender dbLogSender = new DbLogSender();
             dbLogSender.initDbConnection();
-            Parser parser = new Log4jParser(dbLogSender, logFile);
-            LogFileReader lfr = new LogFileReader(logFile, parser);
+            LogFileReader lfr = new LogFileReader(logFile, new Log4jParser(dbLogSender, logFile));
             lfr.startReadFile();
         }
     }
