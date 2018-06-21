@@ -11,6 +11,7 @@ public class LogFileReader <T extends Parser> {
     private Parser parser;
     private static final int FILE_READ_TIMEOUT = 5000;
 
+
     public LogFileReader(final LogFile logFile, T parser) {
         this.logFile = logFile;
         this.parser = parser;
@@ -23,7 +24,7 @@ public class LogFileReader <T extends Parser> {
             file.seek(file.length());
             while(true) {
                 if((line = file.readLine()) != null) {
-                    parser.parse(new String(line.getBytes("ISO-8859-1")));
+                    parser.parse(new String(line.getBytes("ISO-8859-1")).replace("'", ""));
                 } else {
                     Thread.sleep(FILE_READ_TIMEOUT);
                 }
