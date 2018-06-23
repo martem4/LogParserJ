@@ -5,7 +5,7 @@ import Parser.Parser;
 
 import java.io.*;
 
-public class LogFileReader <T extends Parser> implements Runnable{
+public class LogFileReader <T extends Parser> extends Thread{
 
     private LogFile logFile;
     private Parser parser;

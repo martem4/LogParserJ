@@ -5,4 +5,9 @@
         <filePath>D:\2.txt</filePath>
         <type>century</type>
     </logFile>
+    <logFile>
+        <name>orders_web</name>
+        <filePath>D:\3.txt</filePath>
+        <type>century</type>
+    </logFile>
 </logFiles>

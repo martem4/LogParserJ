@@ -12,8 +12,8 @@ import java.util.List;
 
 public class LogParserJ {
 
-    private static final String LOGS_CONFIG_XML = "src/main/resources/logs.xml";
-//    private static final String LOGS_CONFIG_XML = "logs.xml";
+//    private static final String LOGS_CONFIG_XML = "src/main/resources/logs.xml";
+    private static final String LOGS_CONFIG_XML = "logs.xml";
 
     private List<LogFile> readLogsXml() {
         List<LogFile> logFileList = null;
@@ -34,7 +34,7 @@ public class LogParserJ {
         dbLogSender.initDbConnection();
         for(LogFile logFile : logParser.readLogsXml()) {
             LogFileReader lfr = new LogFileReader(logFile, new Log4jParser(dbLogSender, logFile));
-            lfr.run();
+            lfr.start();
         }
     }
 }
