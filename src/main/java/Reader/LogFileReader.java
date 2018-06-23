@@ -5,12 +5,12 @@ import Parser.Parser;
 
 import java.io.*;
 
-public class LogFileReader <T extends Parser> {
+public class LogFileReader <T extends Parser> implements Runnable{
 
     private LogFile logFile;
     private Parser parser;
     private static final int FILE_READ_TIMEOUT = 5000;
-
+    private boolean READ_FILE = true;
 
     public LogFileReader(final LogFile logFile, T parser) {
         this.logFile = logFile;
@@ -22,7 +22,7 @@ public class LogFileReader <T extends Parser> {
         try {
             RandomAccessFile file = new RandomAccessFile(logFile.getFilePath(), "r");
             file.seek(file.length());
-            while(true) {
+            while(READ_FILE) {
                 if((line = file.readLine()) != null) {
                     parser.parse(new String(line.getBytes("ISO-8859-1")).replace("'", ""));
                 } else {
@@ -39,6 +39,10 @@ public class LogFileReader <T extends Parser> {
     }
 
     public void stopReadFile() {
+        READ_FILE = false;
     }
 
+    public void run() {
+        startReadFile();
+    }
 }
