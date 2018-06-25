@@ -3,6 +3,7 @@ package Parser;
 import Db.DbLogSender;
 import Model.LogFile;
 
+import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class Log4jParser implements Parser {
@@ -10,22 +11,24 @@ public class Log4jParser implements Parser {
     final String NEWLINE_PATTERN = "^\\d\\d-\\d\\d-\\d\\d\\d\\d \\d\\d:\\d\\d:\\d\\d*";
     final Pattern exceptionPattern = Pattern.compile(EXCEPTION_PATTERN);
     final Pattern newLinePattern = Pattern.compile(NEWLINE_PATTERN);
-    private DbLogSender dbLogSender;
     private LogFile logFile;
     private boolean isException = false;
     StringBuilder stringBuilder = new StringBuilder();
 
 
-    public Log4jParser(DbLogSender dbLogSender, LogFile logFile) {
+    public Log4jParser(LogFile logFile) {
         super();
-        this.dbLogSender = dbLogSender;
         this.logFile = logFile;
     }
 
     public void parse(String line) {
         if (isException) {
             if(newLinePattern.matcher(line).find()) {
-                dbLogSender.sendLogToDb(stringBuilder.toString(), logFile);
+                try {
+                    new DbLogSender().sendLogToDb(stringBuilder.toString(), logFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 isException = false;
 //                System.out.println(stringBuilder.toString());
 //                System.out.println("################################################################################");
