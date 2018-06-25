@@ -27,31 +27,49 @@ public class DbLogSender {
         return propertiesDb;
     }
 
-    public void initDbConnection() {
+    public void sendLogToDb(String log, LogFile logFile) {
         try {
             connection =  DriverManager.getConnection(propertiesDb.getProperty("url"),
                     propertiesDb.getProperty("login"),
                     propertiesDb.getProperty("password"));
 
             statement = connection.createStatement();
+            String query = "INSERT INTO `systemevents` (`ReceivedAt`, `DeviceReportedTime`\n" +
+                    " , `Facility`,`Priority`, `FromHost`, `Message`\n" +
+                    " , `InfoUnitID`, `SysLogTag`, `EventLogType`,`GenericFileName`, `SystemID`, `processid`\n" +
+                    " , `checksum`) VALUES (now(), now(), 2, 3, 'logserver', " +
+                    "'" +log + "', 1., '" + logFile.getName() + "', NULL, NULL, NULL, '', 0);";
+            statement.execute(query);
+
         }catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
 
-    public void sendLogToDb(String log, LogFile logFile) {
-        String query = "INSERT INTO `systemevents` (`ReceivedAt`, `DeviceReportedTime`\n" +
-                " , `Facility`,`Priority`, `FromHost`, `Message`\n" +
-                " , `InfoUnitID`, `SysLogTag`, `EventLogType`,`GenericFileName`, `SystemID`, `processid`\n" +
-                " , `checksum`) VALUES (now(), now(), 2, 3, 'logserver', " +
-                "'" +log + "', 1., '" + logFile.getName() + "', NULL, NULL, NULL, '', 0);";
-        try {
-            statement.execute(query);
-        } catch (SQLException e) {
-            System.out.println(query);
-            e.printStackTrace();
-        }
-    }
+//    public void sendLogToDb(String log, LogFile logFile) {
+//        String query = "INSERT INTO `systemevents` (`ReceivedAt`, `DeviceReportedTime`\n" +
+//                " , `Facility`,`Priority`, `FromHost`, `Message`\n" +
+//                " , `InfoUnitID`, `SysLogTag`, `EventLogType`,`GenericFileName`, `SystemID`, `processid`\n" +
+//                " , `checksum`) VALUES (now(), now(), 2, 3, 'logserver', " +
+//                "'" +log + "', 1., '" + logFile.getName() + "', NULL, NULL, NULL, '', 0);";
+//        try {
+//            statement.execute(query);
+//        } catch (SQLException e) {
+//            System.out.println(query);
+//            e.printStackTrace();
+//        }
+//    }
 
 }

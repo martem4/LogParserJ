@@ -30,10 +30,9 @@ public class LogParserJ {
 
     public static void main(String[] args) throws IOException {
         LogParserJ logParser = new LogParserJ();
-        DbLogSender dbLogSender = new DbLogSender();
-        dbLogSender.initDbConnection();
+        //DbLogSender dbLogSender = new DbLogSender();
         for(LogFile logFile : logParser.readLogsXml()) {
-            LogFileReader lfr = new LogFileReader(logFile, new Log4jParser(dbLogSender, logFile));
+            LogFileReader lfr = new LogFileReader(logFile, new Log4jParser(new DbLogSender(), logFile));
             lfr.start();
         }
     }

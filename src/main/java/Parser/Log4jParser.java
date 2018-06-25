@@ -25,10 +25,10 @@ public class Log4jParser implements Parser {
     public void parse(String line) {
         if (isException) {
             if(newLinePattern.matcher(line).find()) {
-//                dbLogSender.sendLogToDb(stringBuilder.toString(), logFile);
+                dbLogSender.sendLogToDb(stringBuilder.toString(), logFile);
                 isException = false;
-                System.out.println(stringBuilder.toString());
-                System.out.println("################################################################################");
+//                System.out.println(stringBuilder.toString());
+//                System.out.println("################################################################################");
                 stringBuilder.setLength(0);
             }
             else {
