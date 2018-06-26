@@ -4,12 +4,15 @@
     <list default="true" id="1c281a6f-3482-4ce4-af0b-7e49c89354b2" name="Default" comment="make executable jar w dependas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LogParserJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LogParserJ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Log4jParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Log4jParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Db/DbLogSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Db/DbLogSender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LogParserJ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LogParserJ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Parser/Log4jParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Parser/Log4jParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Reader/LogFileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Reader/LogFileReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/logs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Db/DbLogSender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LogParserJ.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/LogFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/LogFiles.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/Log4jParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Parser/Parser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Reader/LogFileReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logs.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,42 +24,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LogParserJ.java" pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="LogParserJ.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/LogParserJ.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogFileReader.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Reader/LogFileReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log4jParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Log4jParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Parser/Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="54">
+              <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -129,7 +102,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
+    <option name="x" value="-1929" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
     <option name="height" value="1098" />
@@ -140,8 +113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,16 +154,13 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Parser" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="logparserj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LogParserJ" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,7 +324,9 @@
       <updated>1529563748001</updated>
       <workItem from="1529563749483" duration="15496000" />
       <workItem from="1529583310042" duration="17294000" />
-      <workItem from="1529918089044" duration="2389000" />
+      <workItem from="1529918089044" duration="2445000" />
+      <workItem from="1529924665212" duration="50000" />
+      <workItem from="1529994909804" duration="7007000" />
     </task>
     <task id="LOCAL-00001" summary="make executable jar w dependas">
       <created>1529574628244</created>
@@ -407,14 +377,22 @@
       <option name="project" value="LOCAL" />
       <updated>1529919513722</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="make executable jar w dependas">
+      <created>1529924069807</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1529924069807</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35179000" />
+    <option name="totallyTimeSpent" value="42292000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1839" height="1098" extended-state="6" />
+    <frame x="-1929" y="-9" width="1938" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -425,13 +403,12 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32785025" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2497309" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2497309" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18774816" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23737916" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -440,10 +417,11 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5080732" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32938644" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32938644" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,9 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -490,9 +465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -507,9 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -545,9 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -593,23 +559,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/LogParserJ.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Db/DbLogSender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="29" column="55" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -629,8 +582,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Reader/LogFileReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="-42">
+          <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/LogParserJ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>

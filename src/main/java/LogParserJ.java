@@ -1,4 +1,3 @@
-import Db.DbLogSender;
 import Model.LogFile;
 import Model.LogFiles;
 import Parser.Log4jParser;
