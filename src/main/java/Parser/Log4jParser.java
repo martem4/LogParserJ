@@ -9,8 +9,10 @@ import java.util.regex.Pattern;
 public class Log4jParser implements Parser {
     final String EXCEPTION_PATTERN = "ERROR|exception";
     final String NEWLINE_PATTERN = "^\\d\\d-\\d\\d-\\d\\d\\d\\d \\d\\d:\\d\\d:\\d\\d*";
+    final String INFO_PATTERN = NEWLINE_PATTERN + "INFO ";
     final Pattern exceptionPattern = Pattern.compile(EXCEPTION_PATTERN);
     final Pattern newLinePattern = Pattern.compile(NEWLINE_PATTERN);
+    final Pattern infoLinePattern = Pattern.compile(INFO_PATTERN);
     private LogFile logFile;
     private boolean isException = false;
     StringBuilder stringBuilder = new StringBuilder();
@@ -39,8 +41,10 @@ public class Log4jParser implements Parser {
             }
         }
         if (exceptionPattern.matcher(line).find()) {
-            isException = true;
-            stringBuilder.append(line+"\n");
+            if (!infoLinePattern.matcher(line).find()) {
+                isException = true;
+                stringBuilder.append(line + "\n");
+            }
         }
     }
 }

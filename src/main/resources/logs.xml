@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <logFiles>
     <logFile>
-        <name>bank1</name>
+        <name>banktest1</name>
         <filePath>D:\2.txt</filePath>
         <type>century</type>
     </logFile>
     <logFile>
-        <name>orders_web</name>
+        <name>banktest2</name>
         <filePath>D:\3.txt</filePath>
+        <type>century</type>
+    </logFile>
+    <logFile>
+        <name>banktest3</name>
+        <filePath>D:\4.txt</filePath>
         <type>century</type>
     </logFile>
 </logFiles>
