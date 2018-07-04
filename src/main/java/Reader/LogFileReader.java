@@ -5,7 +5,7 @@ import Parser.Parser;
 
 import java.io.*;
 
-public class LogFileReader <T extends Parser> extends Thread{
+public class LogFileReader <T extends Parser> extends Thread {
 
     private LogFile logFile;
     private Parser parser;
@@ -20,9 +20,13 @@ public class LogFileReader <T extends Parser> extends Thread{
     public void startReadFile() {
         String line;
         try {
-            RandomAccessFile file = new RandomAccessFile(logFile.getFilePath(), "r");
+            File f = new File(logFile.getFilePath());
+            RandomAccessFile file = new RandomAccessFile(f, "r");
             file.seek(file.length());
             while(READ_FILE) {
+                if (f.length() < file.length()) {
+                    file = new RandomAccessFile(f, "r");
+                }
                 if((line = file.readLine()) != null) {
                     parser.parse(new String(line.getBytes("ISO-8859-1")).replace("'", ""));
                 } else {
