@@ -11,8 +11,8 @@ import java.util.List;
 
 public class LogParserJ {
 
-    private static final String LOGS_CONFIG_XML = "src/main/resources/logs.xml";
-//    private static final String LOGS_CONFIG_XML = "logs.xml";
+//    private static final String LOGS_CONFIG_XML = "src/main/resources/logs.xml";
+    private static final String LOGS_CONFIG_XML = "logs.xml";
 
     private List<LogFile> readLogsXml() {
         List<LogFile> logFileList = null;
