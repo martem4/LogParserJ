@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class Log4jParser implements Parser {
-    final String EXCEPTION_PATTERN = "ERROR|exception";
-    final String NEWLINE_PATTERN = "^.*\\d\\d:\\d\\d:\\d\\d*";
-    final String INFO_PATTERN = "^.*\\d\\d-\\d\\d-\\d\\d\\d\\d \\d\\d:\\d\\d:\\d\\d.*INFO ";
+    final static String EXCEPTION_PATTERN = "ERROR|exception";
+    final static String NEWLINE_PATTERN = "^.*\\d\\d:\\d\\d:\\d\\d*";
+    final static String INFO_PATTERN = "^.*\\d\\d-\\d\\d-\\d\\d\\d\\d \\d\\d:\\d\\d:\\d\\d.*INFO ";
 
-    final Pattern exceptionPattern = Pattern.compile(EXCEPTION_PATTERN);
-    final Pattern newLinePattern = Pattern.compile(NEWLINE_PATTERN);
-    final Pattern infoLinePattern = Pattern.compile(INFO_PATTERN);
+    final static Pattern exceptionPattern = Pattern.compile(EXCEPTION_PATTERN);
+    final static Pattern newLinePattern = Pattern.compile(NEWLINE_PATTERN);
+    final static Pattern infoLinePattern = Pattern.compile(INFO_PATTERN);
     private LogFile logFile;
     private boolean isException = false;
     StringBuilder stringBuilder = new StringBuilder();
@@ -27,7 +27,11 @@ public class Log4jParser implements Parser {
     public void parse(String line) {
         if (isException) {
             if(newLinePattern.matcher(line).find()) {
-                DbLogSender.sendLogToDb(stringBuilder.toString(), logFile);
+                try {
+                    DbLogSender.sendLogToDb(stringBuilder.toString(), logFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 isException = false;
 //                System.out.println(stringBuilder.toString());
 //                System.out.println("################################################################################");
