@@ -27,11 +27,7 @@ public class Log4jParser implements Parser {
     public void parse(String line) {
         if (isException) {
             if(newLinePattern.matcher(line).find()) {
-                try {
-                    new DbLogSender().sendLogToDb(stringBuilder.toString(), logFile);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                DbLogSender.sendLogToDb(stringBuilder.toString(), logFile);
                 isException = false;
 //                System.out.println(stringBuilder.toString());
 //                System.out.println("################################################################################");

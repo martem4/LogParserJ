@@ -10,12 +10,12 @@ import java.util.Properties;
 
 public class DbLogSender {
 
-//    private static final String JDBC_PROPERTIES_FILE="src/main/resources/jdbc.properties";
-    private static final String JDBC_PROPERTIES_FILE="jdbc.properties";
-    private Properties propertiesDb = new Properties();
+    private static final String JDBC_PROPERTIES_FILE="src/main/resources/jdbc.properties";
+//    private static final String JDBC_PROPERTIES_FILE="jdbc.properties";
+    private static Properties propertiesDb = new Properties();
     InputStream inputStream;
-    private Connection connection;
-    private Statement statement;
+    private static Connection connection;
+    private static Statement statement;
 
     public DbLogSender() throws IOException{
         super();
@@ -27,7 +27,7 @@ public class DbLogSender {
         return propertiesDb;
     }
 
-    public void sendLogToDb(String log, LogFile logFile) {
+    public static void sendLogToDb(String log, LogFile logFile) {
         try {
             connection =  DriverManager.getConnection(propertiesDb.getProperty("url"),
                     propertiesDb.getProperty("login"),
