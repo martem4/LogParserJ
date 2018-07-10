@@ -22,10 +22,11 @@ public class LogFileReader <T extends Parser> extends Thread {
         try {
             File f = new File(logFile.getFilePath());
             RandomAccessFile file = new RandomAccessFile(f, "r");
-            file.seek(file.length());
+            file.seek(f.length());
             while(READ_FILE) {
                 if (f.length() < file.length()) {
                     file = new RandomAccessFile(f, "r");
+                    file.seek(f.length());
                 }
                 if((line = file.readLine()) != null) {
                     parser.parse(new String(line.getBytes("ISO-8859-1")).replace("'", ""));

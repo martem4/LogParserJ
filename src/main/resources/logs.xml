@@ -4,5 +4,9 @@
         <name>test_exchanger</name>
         <filePath>D:\2.txt</filePath>
         <type>century</type>
+        <logLevel>
+            <level>ERROR</level>
+            <level>WARN</level>
+        </logLevel>
     </logFile>
 </logFiles>

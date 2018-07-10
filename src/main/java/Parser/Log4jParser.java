@@ -7,13 +7,10 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class Log4jParser implements Parser {
-    final static String EXCEPTION_PATTERN = "ERROR|exception";
-    final static String NEWLINE_PATTERN = "^.*\\d\\d:\\d\\d:\\d\\d*";
-    final static String INFO_PATTERN = "^.*\\d\\d-\\d\\d-\\d\\d\\d\\d \\d\\d:\\d\\d:\\d\\d.*INFO ";
-
-    final static Pattern exceptionPattern = Pattern.compile(EXCEPTION_PATTERN);
+    final static String NEWLINE_PATTERN = "^.*\\d\\d:\\d\\d:\\d\\d.*";
     final static Pattern newLinePattern = Pattern.compile(NEWLINE_PATTERN);
-    final static Pattern infoLinePattern = Pattern.compile(INFO_PATTERN);
+    Pattern patternLogMode;
+
     private LogFile logFile;
     private boolean isException = false;
     StringBuilder stringBuilder = new StringBuilder();
@@ -22,6 +19,7 @@ public class Log4jParser implements Parser {
     public Log4jParser(LogFile logFile) {
         super();
         this.logFile = logFile;
+        patternLogMode = Pattern.compile(NEWLINE_PATTERN + logFile.getLogPatternMods());
     }
 
     public void parse(String line) {
@@ -33,19 +31,21 @@ public class Log4jParser implements Parser {
                     e.printStackTrace();
                 }
                 isException = false;
-//                System.out.println(stringBuilder.toString());
-//                System.out.println("################################################################################");
+                prettyPrint(stringBuilder);
                 stringBuilder.setLength(0);
             }
             else {
                 stringBuilder.append(line+"\n");
             }
         }
-        if (exceptionPattern.matcher(line).find()) {
-            if (!infoLinePattern.matcher(line).find()) {
-                isException = true;
-                stringBuilder.append(line + "\n");
-            }
+        if (patternLogMode.matcher(line).find()) {
+            isException = true;
+            stringBuilder.append(line + "\n");
         }
+    }
+
+    private void prettyPrint(StringBuilder stringBuilder) {
+        System.out.println(stringBuilder.toString());
+        System.out.println("################################################################################");
     }
 }

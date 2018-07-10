@@ -26,7 +26,7 @@ public class DbLogSender {
     public static void sendLogToDb(String log, LogFile logFile) throws IOException {
         readDbConProperties();
         try {
-            connection =  DriverManager.getConnection(propertiesDb.getProperty("url"),
+                connection =  DriverManager.getConnection(propertiesDb.getProperty("url"),
                     propertiesDb.getProperty("login"),
                     propertiesDb.getProperty("password"));
 
