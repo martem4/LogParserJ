@@ -31,7 +31,6 @@ public class LogParserJ {
         LogParserJ logParser = new LogParserJ();
         for(LogFile logFile : logParser.readLogsXml()) {
             LogFileReader lfr = new LogFileReader(logFile, new Log4jParser(logFile));
-            System.out.println("Start log parser: " + logFile.getName());
             lfr.start();
         }
     }
